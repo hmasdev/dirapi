@@ -1,0 +1,11 @@
+SELECT 
+    *
+    FROM Transaction2
+    {% if start is defined and end is defined %}
+    where '{{ start }}' <= Date and Date <= '{{ end }}'
+    {% elif start is defined %}
+    where '{{ start }}' <= Date
+    {% elif end is defined %}
+    where Date <= '{{ end }}'
+    {% else %}
+    {% endif %}

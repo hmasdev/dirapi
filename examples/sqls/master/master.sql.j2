@@ -1,0 +1,11 @@
+SELECT 
+    *
+    FROM Customer
+    {% if start is defined and end is defined %}
+    where '{{ start }}' <= JoinDate and JoinDate <= '{{ end }}'
+    {% elif start is defined %}
+    where '{{ start }}' <= JoinDate
+    {% elif end is defined %}
+    where JoinDate <= '{{ end }}'
+    {% else %}
+    {% endif %}
