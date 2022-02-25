@@ -1,0 +1,36 @@
+name: Pytest
+
+on:
+  push:
+  pull_request:
+    types: [opened, synchronize]
+  schedule:
+    - cron: "0 8 * * 0"
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.7, 3.8, 3.9, "3.10"]
+    steps:
+      - uses: actions/checkout@v1
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install requirements
+        run: |
+          python -m pip install --upgrade pip
+          pip install pipenv
+          pipenv install --dev
+      - name: Lint
+        run: |
+          pipenv run flake8 . --show-source
+          pipenv run mypy .
+      - name: Test
+        run: |
+          pipenv run pytest
+      - name: Delete virtualenv
+        run: |
+          pipenv --rm
