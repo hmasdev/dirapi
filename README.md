@@ -85,7 +85,7 @@ $ pipenv install --dev
 
 ### Issues
 
-- For any bugs, use [BUG REPORT](https://github.com/hmasdev/diraapi/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D) to create an issue.
+- For any bugs, use [BUG REPORT](https://github.com/hmasdev/dirapi/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5BBUG%5D) to create an issue.
 
 - For any enhancement, use [FEATURE REQUEST](https://github.com/hmasdev/dirapi/issues/new?assignees=&labels=enhancement&template=feature_request.md&title=) to create an issue.
 
